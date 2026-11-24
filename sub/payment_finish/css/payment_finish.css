@@ -1,0 +1,58 @@
+
+/* 글로벌 */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans KR', sans-serif; background: #FFFFFF; color: #552B25; }
+a { text-decoration: none; }
+.container { width: 100%; max-width: 500px; margin: 0 auto; }
+
+/* Header: 기존 페이지와 동일 */
+.header { width: 100%; height: 60px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; }
+.logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.logo img { display: block; max-height: 40px; width: auto; }
+.logo-text { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 500; color: #552B25; white-space: nowrap; }
+.menu-icon { font-size: 24px; color: #000000; }
+.menu-trigger { display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+/* 슬라이드 메뉴: 기존 페이지와 동일 */
+.menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.menu-overlay { position: fixed; top: 0; left: max(0px, calc((100vw - 500px) / 2)); width: min(100vw, 500px); height: 100vh; background: rgba(0, 0, 0, 0.4); opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; z-index: 100; }
+.side-menu { position: fixed; top: 0; right: max(0px, calc((100vw - 500px) / 2)); width: min(66.6667vw, 333.333px); height: 100vh; background: #FFF4DF; transform: translateX(100%); visibility: hidden; transition: transform .3s ease, visibility .3s ease; z-index: 101; }
+.side-menu-header { height: 60px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E8C9B6; }
+.side-menu-header h2 { font-size: 20px; font-weight: 700; color: #E83D35; }
+.menu-close { display: flex; align-items: center; justify-content: center; font-size: 24px; color: #552B25; cursor: pointer; }
+.side-menu-list { display: flex; flex-direction: column; padding: 20px; }
+.side-menu-list a { display: block; padding: 15px 0; font-size: 16px; font-weight: 500; color: #552B25; border-bottom: 1px solid #E8C9B6; }
+.menu-toggle:checked ~ .menu-overlay { opacity: 1; visibility: visible; }
+.menu-toggle:checked ~ .side-menu { transform: translateX(0); visibility: visible; }
+
+/* 결제 완료 */
+.finish-main { padding: 0 20px 32px; }
+.finish-hero { text-align: center; padding: 22px 0 26px; }
+.finish-hero img { display: block; width: 100%; max-width: 350px; height: auto; margin: 0 auto 8px; }
+.finish-hero h1 { font-size: clamp(22px, 6vw, 29px); color: #B82A22; font-weight: 700; letter-spacing: -1px; }
+.finish-hero p { margin-top: 12px; font-size: 14px; line-height: 1.8; color: #552B25; }
+
+/* 주문 요약 */
+.order-summary { padding: 18px 18px 15px; border: 1px solid #E7CFC2; border-radius: 16px; background: #FFFCF9; }
+.order-number { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; padding-bottom: 15px; margin-bottom: 12px; border-bottom: 1px solid #E7CFC2; font-size: 16px; }
+.order-number strong:last-child { color: #D92828; font-size: 15px; overflow-wrap: anywhere; }
+.summary-row { display: grid; grid-template-columns: 24px minmax(70px, 1fr) minmax(0, 1.6fr); gap: 9px; align-items: center; padding: 8px 0; font-size: 13px; }
+.summary-row iconify-icon { font-size: 22px; color: #D92828; }
+.summary-row strong { text-align: right; font-weight: 500; overflow-wrap: anywhere; }
+.address-row { align-items: start; }
+
+/* 쿠폰 안내 */
+.coupon-notice { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 18px; padding: 18px 14px; border-radius: 16px; background: #FFE9E6; }
+.coupon-notice iconify-icon { flex: none; font-size: 44px; color: #D92828; }
+.coupon-notice p { font-size: 14px; line-height: 1.7; }
+.coupon-notice strong { color: #D92828; }
+
+/* 메인 이동 버튼 */
+.home-button { display: flex; align-items: center; justify-content: center; gap: 9px; width: 100%; min-height: 60px; margin-top: 20px; padding: 12px; border-radius: 13px; background: #D92828; color: #FFFFFF; font-size: 18px; font-weight: 700; }
+.home-button iconify-icon { font-size: 26px; }
+
+@media (max-width: 360px) {
+    .order-number { font-size: 14px; }
+    .summary-row { grid-template-columns: 22px 70px minmax(0, 1fr); gap: 6px; font-size: 11px; }
+    .coupon-notice p { font-size: 12px; }
+}

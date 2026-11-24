@@ -1,0 +1,639 @@
+
+/* =========================
+   글로벌
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #FFFFFF;
+    color: #552B25;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #FFFFFF;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    max-height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #552B25;
+    white-space: nowrap;
+}
+
+.menu-icon {
+    font-size: 24px;
+    color: #000000;
+}
+
+.menu-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+/* =========================
+   슬라이드 메뉴
+========================= */
+
+.menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: max(0px, calc((100vw - 500px) / 2));
+
+    width: min(100vw, 500px);
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: max(0px, calc((100vw - 500px) / 2));
+
+    width: min(66.6667vw, 333.333px);
+    height: 100vh;
+
+    background-color: #FFF4DF;
+
+    transform: translateX(100%);
+    visibility: hidden;
+
+    transition: transform 0.3s ease, visibility 0.3s ease;
+    z-index: 101;
+}
+
+.side-menu-header {
+    height: 60px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #E8C9B6;
+}
+
+.side-menu-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #E83D35;
+}
+
+.menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+    color: #552B25;
+    cursor: pointer;
+}
+
+.side-menu-list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.side-menu-list a {
+    display: block;
+    padding: 15px 0;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: #552B25;
+
+    border-bottom: 1px solid #E8C9B6;
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-toggle:checked ~ .side-menu {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+
+/* =========================
+   결제 페이지 상단
+========================= */
+
+.back-navigation {
+    margin: 0 20px 18px;
+    background-color: #FFF4DF;
+    border-radius: 10px;
+}
+
+.back-navigation a {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 0 14px;
+
+    font-size: 15px;
+    font-weight: 700;
+    color: #552B25;
+}
+
+.back-navigation iconify-icon {
+    font-size: 24px;
+}
+
+
+/* =========================
+   결제 섹션 공통
+========================= */
+
+.payment-section {
+    padding: 0 20px;
+    margin-bottom: 28px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 14px;
+
+    font-size: 20px;
+    font-weight: 700;
+    color: #552B25;
+}
+
+.section-heading::before {
+    content: '';
+    width: 5px;
+    height: 23px;
+    flex-shrink: 0;
+
+    background-color: #E83D35;
+    border-radius: 4px;
+}
+
+
+/* =========================
+   주문 상품
+========================= */
+
+.order-product {
+    display: flex;
+    gap: 14px;
+
+    padding: 12px;
+
+    border: 1px solid #DCCBC1;
+    border-radius: 12px;
+}
+
+.order-product > img {
+    width: 112px;
+    height: 112px;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: #FFF4DF;
+}
+
+.order-product-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.product-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+
+    margin-bottom: 7px;
+}
+
+.product-top h3 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.product-top strong {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.order-product-info p {
+    margin-top: 4px;
+
+    color: #786B67;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+
+/* =========================
+   주문자 정보
+========================= */
+
+.customer-fields {
+    display: grid;
+    grid-template-columns: 68px 1fr;
+    align-items: center;
+    gap: 10px 8px;
+}
+
+.customer-fields label,
+.field-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.customer-fields input,
+.address-field,
+textarea {
+    width: 100%;
+    border: 1px solid #D8CECA;
+    background-color: #FFFFFF;
+    border-radius: 9px;
+
+    font: inherit;
+    font-size: 13px;
+}
+
+.customer-fields input {
+    height: 42px;
+    padding: 0 12px;
+    min-width: 0;
+}
+
+
+/* =========================
+   배달 정보
+========================= */
+
+.delivery-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.choice-card {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+
+    min-height: 82px;
+    padding: 10px 8px;
+
+    border: 1px solid #D8CECA;
+    border-radius: 11px;
+
+    cursor: pointer;
+}
+
+.choice-card:has(input:checked) {
+    border-color: #E83D35;
+    background-color: #FFF4F1;
+}
+
+.choice-card input,
+.payment-method input {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    accent-color: #E83D35;
+}
+
+.choice-card > iconify-icon {
+    font-size: 25px;
+    flex-shrink: 0;
+    color: #552B25;
+}
+
+.choice-card span {
+    min-width: 0;
+}
+
+.choice-card strong {
+    display: block;
+    font-size: 13px;
+}
+
+.choice-card small {
+    display: block;
+    margin-top: 4px;
+
+    color: #786B67;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.field-label {
+    display: block;
+    margin: 12px 0 7px;
+}
+
+.field-label span {
+    color: #987D75;
+    font-weight: 400;
+}
+
+.address-field {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    height: 44px;
+    padding: 0 11px;
+}
+
+.address-field iconify-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.address-field input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+
+    font: inherit;
+    font-size: 12px;
+}
+
+textarea {
+    display: block;
+    min-height: 65px;
+    padding: 12px;
+    resize: vertical;
+}
+
+
+/* =========================
+   할인 및 쿠폰
+========================= */
+
+.coupon-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    height: 50px;
+    padding: 0 13px;
+
+    border: 1px solid #D8CECA;
+    border-radius: 10px;
+
+    color: #552B25;
+}
+
+.coupon-link iconify-icon {
+    font-size: 24px;
+}
+
+.coupon-link span {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   결제 금액
+========================= */
+
+.amount-box {
+    background-color: #FFF4DF;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.amount-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding-bottom: 7px;
+    font-size: 14px;
+}
+
+.amount-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    padding-top: 13px;
+    margin-top: 7px;
+
+    border-top: 1px solid #D8C8B8;
+}
+
+.amount-total strong:first-child {
+    font-size: 15px;
+}
+
+.amount-total strong:last-child {
+    font-size: 23px;
+    color: #D92828;
+}
+
+
+/* =========================
+   결제 수단 선택
+========================= */
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.payment-method {
+    min-height: 92px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    gap: 7px;
+    padding: 12px 5px;
+
+    border: 1px solid #D8CECA;
+    border-radius: 12px;
+
+    text-align: center;
+    cursor: pointer;
+}
+
+.payment-method:has(input:checked) {
+    border-color: #E83D35;
+    background-color: #FFF4F1;
+}
+
+.payment-method input {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+}
+
+.payment-method > iconify-icon {
+    font-size: 28px;
+}
+
+.payment-method > span:last-child {
+    font-size: 11px;
+    font-weight: 700;
+    word-break: keep-all;
+}
+
+.pay-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 28px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.naver-logo {
+    width: 28px;
+    border-radius: 5px;
+
+    background-color: #03C75A;
+    color: #FFFFFF;
+    font-size: 19px;
+}
+
+.kakao-logo {
+    padding: 0 10px;
+    border-radius: 18px;
+
+    background-color: #FFDF00;
+    color: #2B2119;
+}
+
+
+/* =========================
+   결제 버튼
+========================= */
+
+.checkout-area {
+    padding: 0 20px 35px;
+}
+
+.checkout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: 100%;
+    height: 60px;
+
+    border-radius: 12px;
+    background-color: #D92828;
+    color: #FFFFFF;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.checkout-button iconify-icon {
+    font-size: 25px;
+}
+
+
+/* 작은 모바일 화면 대응 */
+@media (max-width: 360px) {
+    .order-product > img {
+        width: 90px;
+        height: 105px;
+    }
+
+    .product-top h3 {
+        font-size: 13px;
+    }
+
+    .choice-card {
+        flex-wrap: wrap;
+    }
+
+    .choice-card > iconify-icon {
+        font-size: 21px;
+    }
+
+    .amount-total strong:last-child {
+        font-size: 20px;
+    }
+}

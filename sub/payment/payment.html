@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제 페이지 | 입덕볶이</title>
+    <link rel="stylesheet" href="css/payment.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- 슬라이드 메뉴 -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+        <label for="menu-toggle" class="menu-overlay"
+               aria-label="메뉴 닫기"></label>
+
+        <aside class="side-menu">
+            <div class="side-menu-header">
+                <h2>메뉴</h2>
+                <label for="menu-toggle" class="menu-close"
+                       aria-label="메뉴 닫기">
+                    <iconify-icon icon="mdi:close"></iconify-icon>
+                </label>
+            </div>
+
+            <nav class="side-menu-list">
+                <a href="../lists/lists.html">리스트페이지</a>
+                <a href="../detail/detail.html">상세페이지</a>
+                <a href="payment.html">결제 페이지</a>
+                <a href="../payment_finish/payment_finish.html">결제</a>
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <header class="header">
+            <a href="../../index.html" class="logo">
+                <img src="../../img/Logo.png" alt="입덕볶이 로고">
+                <span class="logo-text">입덕볶이</span>
+            </a>
+
+            <label for="menu-toggle" class="menu-trigger"
+                   aria-label="메뉴 열기">
+                <iconify-icon icon="mdi:menu"
+                              class="menu-icon"></iconify-icon>
+            </label>
+        </header>
+
+        <main>
+
+            <!-- 뒤로 가기 -->
+            <div class="back-navigation">
+                <a href="../detail/detail.html">
+                    <iconify-icon icon="mdi:chevron-left"></iconify-icon>
+                    <span>메뉴 상세보기</span>
+                </a>
+            </div>
+
+            <!-- 주문 상품 -->
+            <section class="payment-section">
+                <h2 class="section-heading">주문 상품</h2>
+
+                <div class="order-product">
+                    <img src="img/classic.webp"
+                         alt="입덕 오리지널 떡볶이">
+
+                    <div class="order-product-info">
+                        <div class="product-top">
+                            <h3>입덕 오리지널 떡볶이</h3>
+                            <strong>6,900원</strong>
+                        </div>
+
+                        <p>맵기 : 보통맛</p>
+                        <p>토핑 : 치즈 추가 (+2,000원)</p>
+                        <p>수량 : 1개</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 주문자 정보 -->
+            <section class="payment-section">
+                <h2 class="section-heading">주문자 정보</h2>
+
+                <div class="customer-fields">
+                    <label for="customer-name">이름</label>
+                    <input
+                        id="customer-name"
+                        type="text"
+                        placeholder="입덕이"
+                        autocomplete="name"
+                    >
+
+                    <label for="customer-phone">연락처</label>
+                    <input
+                        id="customer-phone"
+                        type="tel"
+                        placeholder="010-1234-5678"
+                        autocomplete="tel"
+                    >
+                </div>
+            </section>
+
+            <!-- 배달 정보 -->
+            <section class="payment-section">
+                <h2 class="section-heading">배달 정보</h2>
+
+                <div class="delivery-options">
+
+                    <label class="choice-card">
+                        <input type="radio"
+                               name="delivery-type"
+                               value="delivery" checked>
+                        <iconify-icon icon="mdi:moped"></iconify-icon>
+                        <span>
+                            <strong>배달 주문</strong>
+                            <small>입력한 주소로 배달돼요.</small>
+                        </span>
+                    </label>
+
+                    <label class="choice-card">
+                        <input type="radio"
+                               name="delivery-type"
+                               value="pickup">
+                        <iconify-icon icon="mdi:shopping-outline"></iconify-icon>
+                        <span>
+                            <strong>포장 주문</strong>
+                            <small>매장에서 직접 수령해요.</small>
+                        </span>
+                    </label>
+
+                </div>
+
+                <label class="field-label"
+                       for="delivery-address">배달 주소</label>
+
+                <div class="address-field">
+                    <iconify-icon icon="mdi:map-marker-outline"></iconify-icon>
+                    <input
+                        id="delivery-address"
+                        type="text"
+                        placeholder="배달받을 주소를 입력해주세요"
+                        autocomplete="street-address"
+                    >
+                </div>
+
+                <label class="field-label" for="delivery-request">
+                    요청사항 <span>(선택)</span>
+                </label>
+
+                <textarea
+                    id="delivery-request"
+                    placeholder="예) 문 앞에 놓아주세요."></textarea>
+            </section>
+
+            <!-- 할인 및 쿠폰 -->
+            <section class="payment-section">
+                <h2 class="section-heading">할인 및 쿠폰</h2>
+
+                <a href="#" class="coupon-link">
+                    <iconify-icon icon="mdi:ticket-percent-outline"></iconify-icon>
+                    <span>쿠폰 사용하기</span>
+                    <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+                </a>
+            </section>
+
+            <!-- 결제 금액 -->
+            <section class="payment-section">
+                <h2 class="section-heading">결제 금액</h2>
+
+                <div class="amount-box">
+                    <div class="amount-row">
+                        <span>상품 금액</span>
+                        <span>6,900원</span>
+                    </div>
+
+                    <div class="amount-row">
+                        <span>토핑 추가</span>
+                        <span>+2,000원</span>
+                    </div>
+
+                    <div class="amount-row">
+                        <span>배달비</span>
+                        <span>+3,000원</span>
+                    </div>
+
+                    <div class="amount-total">
+                        <strong>최종 결제 금액</strong>
+                        <strong>11,900원</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 결제 수단 -->
+            <section class="payment-section">
+                <h2 class="section-heading">결제 수단 선택</h2>
+
+                <div class="payment-methods">
+
+                    <label class="payment-method">
+                        <input type="radio" name="pay-method"
+                               value="card" checked>
+                        <iconify-icon icon="mdi:credit-card-outline"></iconify-icon>
+                        <span>신용·체크카드</span>
+                    </label>
+
+                    <label class="payment-method">
+                        <input type="radio" name="pay-method"
+                               value="naver">
+                        <span class="pay-logo naver-logo">N</span>
+                        <span>네이버페이</span>
+                    </label>
+
+                    <label class="payment-method">
+                        <input type="radio" name="pay-method"
+                               value="kakao">
+                        <span class="pay-logo kakao-logo">pay</span>
+                        <span>카카오페이</span>
+                    </label>
+
+                </div>
+            </section>
+
+            <!-- 결제 버튼 -->
+            <div class="checkout-area">
+              <a href="../payment_finish/payment_finish.html" class="checkout-button">
+                 <iconify-icon icon="mdi:credit-card-outline"></iconify-icon>
+                    <span>11,900원 결제하기</span>
+                         </a>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
