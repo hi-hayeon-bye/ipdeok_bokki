@@ -1,0 +1,185 @@
+/* 입덕볶이 공통 사이드 메뉴 */
+.menu-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.menu-trigger,
+.menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: max(0px, calc((100vw - 500px) / 2));
+    width: min(100vw, 500px);
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: max(0px, calc((100vw - 500px) / 2));
+    width: min(66.6667vw, 333px);
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #FFF4DF;
+    color: #552B25;
+    font-family: 'Noto Sans KR', sans-serif;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s ease;
+    z-index: 101;
+}
+
+.side-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 16px;
+    border-bottom: 1px solid #E8C9B6;
+}
+
+.side-menu-brand {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 7px;
+    color: #E83D35;
+    text-decoration: none;
+}
+
+.side-menu-brand img {
+    display: block;
+    width: auto;
+    height: 32px;
+    flex: none;
+}
+
+.side-menu-brand span {
+    overflow: hidden;
+    font-size: 17px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.menu-close {
+    width: 36px;
+    height: 36px;
+    flex: none;
+    color: #552B25;
+    font-size: 25px;
+}
+
+.side-menu-login {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    background: #FFFFFF;
+    box-shadow: 0 3px 12px rgba(85, 43, 37, 0.08);
+}
+
+.side-menu-login strong {
+    display: block;
+    color: #552B25;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.side-menu-login p {
+    margin: 5px 0 13px;
+    color: #765E58;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.side-menu-login .side-menu-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 40px;
+    border-radius: 9px;
+    background: #E83D35;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.side-menu-list {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 16px 20px;
+}
+
+.side-menu-list a {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr) 20px;
+    align-items: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 6px;
+    border-bottom: 1px solid #E8C9B6;
+    color: #552B25;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.side-menu-list a[aria-current="page"] {
+    color: #E83D35;
+    font-weight: 700;
+}
+
+.side-menu-list iconify-icon {
+    font-size: 22px;
+}
+
+.side-menu-list iconify-icon:last-child {
+    color: #9B7770;
+    font-size: 19px;
+}
+
+.menu-toggle:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-toggle:checked ~ .side-menu {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+@media (max-width: 360px) {
+    .side-menu-header,
+    .side-menu-list {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .side-menu-login {
+        margin: 12px;
+        padding: 13px;
+    }
+
+    .side-menu-brand span {
+        font-size: 15px;
+    }
+}

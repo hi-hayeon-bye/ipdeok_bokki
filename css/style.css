@@ -108,6 +108,21 @@ body {
     color: #552B25;
 }
 
+.call-btn[aria-disabled="true"] {
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.call-btn small {
+    font-size: 11px;
+}
+
+.coupon-btn {
+    text-decoration: none;
+}
+
 
 /* =========================
    공통 Section
@@ -216,6 +231,7 @@ body {
     justify-content: center;
     margin: 7px auto 0;
     font-size: 12px;
+    text-decoration: none;
 }
 
 .recommend-image {
@@ -263,7 +279,10 @@ body {
 }
 
 .menu-card {
+    display: block;
     min-width: 0;
+    color: inherit;
+    text-decoration: none;
 }
 
 .menu-card img {
@@ -299,6 +318,26 @@ body {
     margin-top: 8px;
 }
 
+.event-filter {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.event-filter legend,
+.event-tab-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* 이벤트 탭 전체 영역 */
 .event-tabs {
     width: 100%;
@@ -326,14 +365,34 @@ body {
 
     font-size: 14px;
     color: #987D75;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 /* 선택된 이벤트 탭 */
-.event-tab.selected {
-    background-color: #BDBDBD;
-    color: #E83D35;
-    border-radius: 12px;
+#event-tab-active:checked ~ .event-tabs label[for="event-tab-active"],
+#event-tab-ended:checked ~ .event-tabs label[for="event-tab-ended"],
+#event-tab-winner:checked ~ .event-tabs label[for="event-tab-winner"] {
+    background-color: #E83D35;
+    color: #FFFFFF;
     font-weight: 700;
+}
+
+#event-tab-active:focus-visible ~ .event-tabs label[for="event-tab-active"],
+#event-tab-ended:focus-visible ~ .event-tabs label[for="event-tab-ended"],
+#event-tab-winner:focus-visible ~ .event-tabs label[for="event-tab-winner"] {
+    outline: 3px solid rgba(232, 61, 53, 0.35);
+    outline-offset: 2px;
+}
+
+.event-panel {
+    display: none;
+}
+
+#event-tab-active:checked ~ .event-panels .event-panel-active,
+#event-tab-ended:checked ~ .event-panels .event-panel-ended,
+#event-tab-winner:checked ~ .event-panels .event-panel-winner {
+    display: block;
 }
 
 /* 이벤트 카드 */
@@ -360,6 +419,7 @@ body {
 .event-label {
     color: #E83D35;
     font-size: 14px;
+    font-weight: 700;
 }
 
 .event-text {
@@ -373,6 +433,85 @@ body {
     color: #987D75;
     font-size: 14px;
     margin-top: 18px;
+}
+
+.event-details {
+    border-top: 1px solid #E6D6CB;
+    color: #552B25;
+}
+
+.event-details summary {
+    position: relative;
+    padding: 15px 45px 15px 21px;
+    color: #E83D35;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.event-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.event-details summary::after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    right: 21px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #FFF4DF;
+    transform: translateY(-50%);
+}
+
+.event-details[open] {
+    background-color: #FFF4DF;
+}
+
+.event-details[open] summary::after {
+    content: '−';
+}
+
+.event-details summary:focus-visible {
+    outline: 3px solid rgba(232, 61, 53, 0.35);
+    outline-offset: -3px;
+}
+
+.event-details p {
+    padding: 0 21px 17px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.event-empty {
+    min-height: 240px;
+    margin: 50px 20px 0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #E8C9B6;
+    border-radius: 12px;
+    background-color: #FFF4DF;
+    color: #552B25;
+}
+
+.event-empty strong {
+    font-size: 17px;
+}
+
+.event-empty p {
+    margin-top: 8px;
+    color: #987D75;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 

@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결제 페이지 | 입덕볶이</title>
     <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="../../css/side-menu.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Iconify -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="../js/order-store.js" defer></script>
 </head>
-<body>
+<body data-page="payment">
 
     <div class="container">
 
@@ -23,20 +25,25 @@
         <label for="menu-toggle" class="menu-overlay"
                aria-label="메뉴 닫기"></label>
 
-        <aside class="side-menu">
+        <aside class="side-menu" aria-label="전체 메뉴">
             <div class="side-menu-header">
-                <h2>메뉴</h2>
+                <a href="../../index.html" class="side-menu-brand" aria-label="입덕볶이 홈"><img src="../../img/Logo.png" alt=""><span>입덕볶이</span></a>
                 <label for="menu-toggle" class="menu-close"
                        aria-label="메뉴 닫기">
                     <iconify-icon icon="mdi:close"></iconify-icon>
                 </label>
             </div>
-
+            <div class="side-menu-login">
+                <strong>입덕볶이에 오신 걸 환영해요!</strong>
+                <p>로그인하고 입덕볶이를 더 즐겨보세요.</p>
+                <a href="../login/login.html" class="side-menu-login-button">로그인하기</a>
+            </div>
             <nav class="side-menu-list">
-                <a href="../lists/lists.html">리스트페이지</a>
-                <a href="../detail/detail.html">상세페이지</a>
-                <a href="payment.html">결제 페이지</a>
-                <a href="../payment_finish/payment_finish.html">결제</a>
+                <a href="../../index.html"><iconify-icon icon="mdi:home-outline"></iconify-icon><span>홈</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../lists/lists.html"><iconify-icon icon="mdi:silverware-fork-knife"></iconify-icon><span>메뉴 주문</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../../index.html#event"><iconify-icon icon="mdi:gift-outline"></iconify-icon><span>이벤트</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../community/community.html"><iconify-icon icon="mdi:chat-outline"></iconify-icon><span>커뮤니티</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../about/about.html"><iconify-icon icon="mdi:information-outline"></iconify-icon><span>브랜드 소개</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
             </nav>
         </aside>
 
@@ -55,32 +62,20 @@
         </header>
 
         <main>
+            <section class="empty-cart" id="empty-cart" aria-labelledby="empty-cart-title" hidden>
+                <iconify-icon icon="mdi:cart-off"></iconify-icon>
+                <h1 id="empty-cart-title">장바구니가 비어 있어요.</h1>
+                <p>메뉴에서 상품과 옵션을 선택한 뒤 다시 이용해 주세요.</p>
+                <a href="../lists/lists.html">메뉴 목록으로 돌아가기</a>
+            </section>
+
+            <div id="payment-content">
 
             <!-- 주문 상품 -->
             <section class="payment-section">
                 <h2 class="section-heading">주문 상품</h2>
 
-                <div class="order-product">
-                    <img src="img/classic.webp"
-                         alt="입덕 오리지널 떡볶이">
-
-                    <div class="order-product-info">
-                        <div class="product-top">
-                            <h3>입덕 오리지널 떡볶이</h3>
-                            <strong>6,900원</strong>
-                        </div>
-
-                        <p>맵기 : 보통맛</p>
-                        <p>토핑 : 치즈 추가 (+2,000원)</p>
-                        <p>수량 : 1개</p>
-
-                        <a href="../detail/detail.html"
-                           class="product-detail-link">
-                            <span>메뉴 상세보기</span>
-                            <iconify-icon icon="mdi:chevron-right"></iconify-icon>
-                        </a>
-                    </div>
-                </div>
+                <div class="order-product-list" id="order-product-list"></div>
             </section>
 
             <!-- 주문자 정보 -->
@@ -176,22 +171,22 @@
                 <div class="amount-box">
                     <div class="amount-row">
                         <span>상품 금액</span>
-                        <span>6,900원</span>
+                        <span id="base-amount">0원</span>
                     </div>
 
                     <div class="amount-row">
                         <span>토핑 추가</span>
-                        <span>+2,000원</span>
+                        <span id="topping-amount">0원</span>
                     </div>
 
                     <div class="amount-row">
                         <span>배달비</span>
-                        <span>+3,000원</span>
+                        <span id="delivery-amount">+3,000원</span>
                     </div>
 
                     <div class="amount-total">
                         <strong>최종 결제 금액</strong>
-                        <strong>11,900원</strong>
+                        <strong id="final-amount">0원</strong>
                     </div>
                 </div>
             </section>
@@ -230,8 +225,9 @@
             <div class="checkout-area">
               <a href="../payment_finish/payment_finish.html" class="checkout-button">
                  <iconify-icon icon="mdi:credit-card-outline"></iconify-icon>
-                    <span>11,900원 결제하기</span>
+                    <span id="checkout-amount">결제하기</span>
                          </a>
+            </div>
             </div>
 
         </main>

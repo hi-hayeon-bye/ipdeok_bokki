@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/side-menu.css">
 
     <!-- Google Fonts : Noto Sans KR -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -24,23 +25,28 @@
         <label for="menu-toggle" class="menu-overlay" aria-label="메뉴 닫기"></label>
 
         <!-- 슬라이드 메뉴 -->
-        <aside class="side-menu">
-
+        <aside class="side-menu" aria-label="전체 메뉴">
             <div class="side-menu-header">
-                <h2></h2>
-
+                <a href="index.html" class="side-menu-brand" aria-label="입덕볶이 홈">
+                    <img src="img/Logo.png" alt="">
+                    <span>입덕볶이</span>
+                </a>
                 <label for="menu-toggle" class="menu-close" aria-label="메뉴 닫기">
                     <iconify-icon icon="mdi:close"></iconify-icon>
                 </label>
             </div>
-
+            <div class="side-menu-login">
+                <strong>입덕볶이에 오신 걸 환영해요!</strong>
+                <p>로그인하고 입덕볶이를 더 즐겨보세요.</p>
+                <a href="sub/login/login.html" class="side-menu-login-button">로그인하기</a>
+            </div>
             <nav class="side-menu-list">
-                <a href="sub/lists/lists.html">메뉴</a>
-                <a href="sub/detail/detail.html">상세페이지</a>
-                <a href="sub/payment/payment.html">결제 페이지</a>
-                <a href="sub/payment_finish/payment_finish.html">결제</a>
+                <a href="index.html" aria-current="page"><iconify-icon icon="mdi:home-outline"></iconify-icon><span>홈</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="sub/lists/lists.html"><iconify-icon icon="mdi:silverware-fork-knife"></iconify-icon><span>메뉴 주문</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="index.html#event"><iconify-icon icon="mdi:gift-outline"></iconify-icon><span>이벤트</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="sub/community/community.html"><iconify-icon icon="mdi:chat-outline"></iconify-icon><span>커뮤니티</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="sub/about/about.html"><iconify-icon icon="mdi:information-outline"></iconify-icon><span>브랜드 소개</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
             </nav>
-
         </aside>
 
         <!-- Header -->
@@ -71,8 +77,11 @@
                     <a href="sub/lists/lists.html" class="order-btn"> 배달 주문하기 </a>
 
                     <div class="order-sub-group">
-                        <div class="call-btn">전화 주문</div>
-                        <div class="coupon-btn">쿠폰 사용</div>
+                        <div class="call-btn" aria-disabled="true" aria-label="전화 주문은 현재 준비 중입니다">
+                            <span>전화 주문</span>
+                            <small>준비 중</small>
+                        </div>
+                        <a href="sub/login/login.html" class="coupon-btn" aria-label="쿠폰 사용을 위해 로그인 페이지로 이동">쿠폰 사용</a>
                     </div>
                 </div>
 
@@ -85,32 +94,26 @@
                 <h2 class="section-title">추천 메뉴</h2>
 
                 <div class="recommend-tags">
-                    <span class="tag active">#해시태그</span>
-                    <span class="tag">#해시태그</span>
-                    <span class="tag">#해시태그</span>
+                    <span class="tag active">#입덕추천</span>
+                    <span class="tag">#오리지널</span>
+                    <span class="tag">#떡볶이맛집</span>
                 </div>
 
                 <div class="recommend-slider">
 
                     <!-- 왼쪽 카드 -->
-                    <div class="recommend-card card-prev">
-                        <p>Best 1</p>
-                        <h3>떡볶이 타이틀 작성</h3>
-                    </div>
+                    <div class="recommend-card card-prev" aria-hidden="true"></div>
 
                     <!-- 중앙 카드 -->
                     <div class="recommend-card card-main">
-                        <p>Best 1</p>
-                        <h3>떡볶이 타이틀 작성</h3>
+                        <p>6,900원</p>
+                        <h3>입덕 오리지널 떡볶이</h3>
 
-                        <div class="recommend-button">버튼</div>
+                        <a href="sub/detail/detail.html" class="recommend-button">자세히 보기</a>
                     </div>
 
                     <!-- 오른쪽 카드 -->
-                    <div class="recommend-card card-next">
-                        <p>Best 1</p>
-                        <h3>떡볶이 타이틀 작성</h3>
-                    </div>
+                    <div class="recommend-card card-next" aria-hidden="true"></div>
 
                     <!-- 추천 메뉴 이미지 -->
                     <div class="recommend-image">
@@ -128,32 +131,32 @@
                 <h2 class="section-title">메뉴</h2>
 
                 <div class="menu-tags">
-                    <span class="tag active">#해시태그</span>
-                    <span class="tag">#해시태그</span>
-                    <span class="tag">#해시태그</span>
+                    <span class="tag active">#전체메뉴</span>
+                    <span class="tag">#인기메뉴</span>
+                    <span class="tag">#매콤한한끼</span>
                 </div>
 
                 <div class="menu-grid">
 
-                    <div class="menu-card">
-                        <img src="img/menu1.png" alt="떡볶이 메뉴 1">
-                        <p>떡볶이 타이틀 작성</p>
-                    </div>
+                    <a href="sub/lists/lists.html" class="menu-card">
+                        <img src="img/menu1.png" alt="입덕 오리지널 떡볶이">
+                        <p>입덕 오리지널 떡볶이</p>
+                    </a>
 
-                    <div class="menu-card">
-                        <img src="img/menu2.png" alt="떡볶이 메뉴 2">
-                        <p>떡볶이 타이틀 작성</p>
-                    </div>
+                    <a href="sub/lists/lists.html" class="menu-card">
+                        <img src="img/menu2.png" alt="입덕 로제 떡볶이">
+                        <p>입덕 로제 떡볶이</p>
+                    </a>
 
-                    <div class="menu-card">
-                        <img src="img/menu3.png" alt="떡볶이 메뉴 3">
-                        <p>떡볶이 타이틀 작성</p>
-                    </div>
+                    <a href="sub/lists/lists.html" class="menu-card">
+                        <img src="img/menu3.png" alt="입덕 치즈 떡볶이">
+                        <p>입덕 치즈 떡볶이</p>
+                    </a>
 
-                    <div class="menu-card">
-                        <img src="img/menu4.png" alt="떡볶이 메뉴 4">
-                        <p>떡볶이 타이틀 작성</p>
-                    </div>
+                    <a href="sub/lists/lists.html" class="menu-card">
+                        <img src="img/menu4.png" alt="입덕 해물 떡볶이">
+                        <p>입덕 해물 떡볶이</p>
+                    </a>
 
                 </div>
 
@@ -161,7 +164,7 @@
 
 
             <!-- Section 4 : 이벤트 -->
-            <section class="section-event">
+            <section class="section-event" id="event">
 
                 <h2 class="section-title">이벤트</h2>
 
@@ -169,32 +172,62 @@
                     귀여운 캐릭터가 떡볶이에 입덕하는 배경
                 </p>
 
-                <!-- 이벤트 탭 -->
-                <div class="event-tabs">
-                    <div class="event-tab selected">진행중</div>
-                    <div class="event-tab">종료</div>
-                    <div class="event-tab">당첨자</div>
-                </div>
+                <fieldset class="event-filter">
+                    <legend>이벤트 상태 선택</legend>
 
-                <div class="event-card">
+                    <input type="radio" name="event-tab" id="event-tab-active" class="event-tab-input" checked>
+                    <input type="radio" name="event-tab" id="event-tab-ended" class="event-tab-input">
+                    <input type="radio" name="event-tab" id="event-tab-winner" class="event-tab-input">
 
-                    <!-- 이벤트 이미지 -->
-                    <img src="img/event.png" alt="입덕볶이 이벤트">
-
-                    <div class="event-content">
-                        <p class="event-label">[할인중 이벤트]</p>
-
-                        <p class="event-text">
-                            매달 추가되는 입덕볶이의 이벤트 내역입니다<br>
-                            자세한 내용은 이벤트..
-                        </p>
-
-                        <p class="event-date">
-                            2026.11.23 - 2026.12.31
-                        </p>
+                    <!-- 이벤트 탭 -->
+                    <div class="event-tabs">
+                        <label for="event-tab-active" class="event-tab">진행중</label>
+                        <label for="event-tab-ended" class="event-tab">종료</label>
+                        <label for="event-tab-winner" class="event-tab">당첨자</label>
                     </div>
 
-                </div>
+                    <div class="event-panels">
+                        <div class="event-panel event-panel-active">
+                            <article class="event-card">
+
+                                <!-- 이벤트 이미지 -->
+                                <img src="img/event.png" alt="입덕볶이 할인 이벤트">
+
+                                <div class="event-content">
+                                    <h3 class="event-label">입덕볶이 할인 이벤트</h3>
+
+                                    <p class="event-text">
+                                        매달 추가되는 입덕볶이의 이벤트 내역입니다.
+                                    </p>
+
+                                    <p class="event-date">
+                                        2026.11.23 ~ 2026.12.31
+                                    </p>
+                                </div>
+
+                                <details class="event-details">
+                                    <summary>이벤트 자세히 보기</summary>
+                                    <p>상세 이벤트 내용은 준비 중입니다.</p>
+                                </details>
+
+                            </article>
+                        </div>
+
+                        <div class="event-panel event-panel-ended">
+                            <div class="event-empty">
+                                <strong>종료된 이벤트가 없습니다.</strong>
+                                <p>새로운 이벤트 소식을 기다려주세요!</p>
+                            </div>
+                        </div>
+
+                        <div class="event-panel event-panel-winner">
+                            <div class="event-empty">
+                                <strong>등록된 당첨자 발표가 없습니다.</strong>
+                                <p>당첨자 발표는 이곳에서 확인할 수 있어요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
 
             </section>
 

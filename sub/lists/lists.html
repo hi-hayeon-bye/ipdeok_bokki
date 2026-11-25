@@ -7,14 +7,16 @@
     <title>메뉴 리스트 | 입덕볶이</title>
 
     <link rel="stylesheet" href="css/lists.css">
+    <link rel="stylesheet" href="../../css/side-menu.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Iconify -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+    <script src="../js/order-store.js" defer></script>
 </head>
-<body>
+<body data-page="lists">
 
     <div class="container">
 
@@ -23,19 +25,24 @@
 
         <label for="menu-toggle" class="menu-overlay" aria-label="메뉴 닫기"></label>
 
-        <aside class="side-menu">
+        <aside class="side-menu" aria-label="전체 메뉴">
             <div class="side-menu-header">
-                <h2>메뉴</h2>
+                <a href="../../index.html" class="side-menu-brand" aria-label="입덕볶이 홈"><img src="../../img/Logo.png" alt=""><span>입덕볶이</span></a>
                 <label for="menu-toggle" class="menu-close" aria-label="메뉴 닫기">
                     <iconify-icon icon="mdi:close"></iconify-icon>
                 </label>
             </div>
-
+            <div class="side-menu-login">
+                <strong>입덕볶이에 오신 걸 환영해요!</strong>
+                <p>로그인하고 입덕볶이를 더 즐겨보세요.</p>
+                <a href="../login/login.html" class="side-menu-login-button">로그인하기</a>
+            </div>
             <nav class="side-menu-list">
-                <a href="lists.html">리스트페이지</a>
-                <a href="../detail/detail.html">상세페이지</a>
-                <a href="../payment/payment.html">결제 페이지</a>
-                <a href="../payment_finish/payment_finish.html">결제</a>
+                <a href="../../index.html"><iconify-icon icon="mdi:home-outline"></iconify-icon><span>홈</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="lists.html" aria-current="page"><iconify-icon icon="mdi:silverware-fork-knife"></iconify-icon><span>메뉴 주문</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../../index.html#event"><iconify-icon icon="mdi:gift-outline"></iconify-icon><span>이벤트</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../community/community.html"><iconify-icon icon="mdi:chat-outline"></iconify-icon><span>커뮤니티</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+                <a href="../about/about.html"><iconify-icon icon="mdi:information-outline"></iconify-icon><span>브랜드 소개</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
             </nav>
         </aside>
 
@@ -112,7 +119,7 @@
 
                     <!-- 오리지널 -->
                     <article class="product-card">
-                        <a href="#" class="product-image">
+                        <a href="../detail/detail.html" class="product-image">
                             <img src="img/classic.webp" alt="입덕 오리지널 떡볶이">
                             <span class="product-badge popular">
                                 <iconify-icon icon="mdi:crown"></iconify-icon>
@@ -121,12 +128,12 @@
                         </a>
 
                         <div class="product-info">
-                            <h3>입덕 오리지널 떡볶이</h3>
+                            <h3><a href="../detail/detail.html" class="product-name-link">입덕 오리지널 떡볶이</a></h3>
                             <p>입덕볶이의 시그니처! 중독적인 매콤달콤 맛!</p>
 
                             <div class="product-bottom">
                                 <strong>6,900원</strong>
-                                <a href="#" class="add-btn" aria-label="오리지널 떡볶이 추가">
+                                <a href="../detail/detail.html" class="add-btn" aria-label="오리지널 떡볶이 옵션 선택하러 가기">
                                     <iconify-icon icon="mdi:plus"></iconify-icon>
                                 </a>
                             </div>
@@ -135,74 +142,75 @@
 
                     <!-- 치즈 -->
                     <article class="product-card">
-                        <a href="#" class="product-image">
+                        <button type="button" class="product-image unavailable-product" data-unavailable-product="치즈 폭탄 떡볶이">
                             <img src="img/cheese.webp" alt="치즈 폭탄 떡볶이">
                             <span class="product-badge cheese">
                                 <iconify-icon icon="mdi:cheese"></iconify-icon>
                                 치즈추천
                             </span>
-                        </a>
+                        </button>
 
                         <div class="product-info">
-                            <h3>치즈 폭탄 떡볶이</h3>
+                            <h3><button type="button" class="product-name-unavailable" data-unavailable-product="치즈 폭탄 떡볶이">치즈 폭탄 떡볶이</button></h3>
                             <p>고소한 치즈가 듬뿍! 치즈 덕후 필수 메뉴!</p>
 
                             <div class="product-bottom">
                                 <strong>8,900원</strong>
-                                <a href="#" class="add-btn" aria-label="치즈 떡볶이 추가">
+                                <button type="button" class="add-btn" data-unavailable-product="치즈 폭탄 떡볶이" aria-label="치즈 폭탄 떡볶이 준비 중 안내">
                                     <iconify-icon icon="mdi:plus"></iconify-icon>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </article>
 
                     <!-- 로제 -->
                     <article class="product-card">
-                        <a href="#" class="product-image">
+                        <button type="button" class="product-image unavailable-product" data-unavailable-product="꾸덕 로제 떡볶이">
                             <img src="img/rose.webp" alt="꾸덕 로제 떡볶이">
                             <span class="product-badge rose">
                                 <iconify-icon icon="mdi:heart"></iconify-icon>
                                 꾸덕한맛
                             </span>
-                        </a>
+                        </button>
 
                         <div class="product-info">
-                            <h3>꾸덕 로제 떡볶이</h3>
+                            <h3><button type="button" class="product-name-unavailable" data-unavailable-product="꾸덕 로제 떡볶이">꾸덕 로제 떡볶이</button></h3>
                             <p>부드럽고 진한 로제소스의 꾸덕한 매력!</p>
 
                             <div class="product-bottom">
                                 <strong>8,900원</strong>
-                                <a href="#" class="add-btn" aria-label="로제 떡볶이 추가">
+                                <button type="button" class="add-btn" data-unavailable-product="꾸덕 로제 떡볶이" aria-label="꾸덕 로제 떡볶이 준비 중 안내">
                                     <iconify-icon icon="mdi:plus"></iconify-icon>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </article>
 
                     <!-- 해산물 -->
                     <article class="product-card">
-                        <a href="#" class="product-image">
+                        <button type="button" class="product-image unavailable-product" data-unavailable-product="바다 듬뿍 떡볶이">
                             <img src="img/seafood.webp" alt="바다 듬뿍 떡볶이">
                             <span class="product-badge seafood">
                                 <iconify-icon icon="mdi:wave"></iconify-icon>
                                 해물가득
                             </span>
-                        </a>
+                        </button>
 
                         <div class="product-info">
-                            <h3>바다 듬뿍 떡볶이</h3>
+                            <h3><button type="button" class="product-name-unavailable" data-unavailable-product="바다 듬뿍 떡볶이">바다 듬뿍 떡볶이</button></h3>
                             <p>새우, 오징어, 홍합까지! 바다의 풍미 가득!</p>
 
                             <div class="product-bottom">
                                 <strong>10,900원</strong>
-                                <a href="#" class="add-btn" aria-label="해산물 떡볶이 추가">
+                                <button type="button" class="add-btn" data-unavailable-product="바다 듬뿍 떡볶이" aria-label="바다 듬뿍 떡볶이 준비 중 안내">
                                     <iconify-icon icon="mdi:plus"></iconify-icon>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </article>
 
                 </div>
+                <p class="menu-status" id="menu-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
             </section>
 
             <!-- 장바구니 -->
@@ -211,16 +219,17 @@
         <div class="cart-left">
             <div class="cart-icon">
                 <iconify-icon icon="mdi:cart-outline"></iconify-icon>
-                <span class="cart-count">0</span>
+                <span class="cart-count" id="cart-count">0</span>
             </div>
             <span class="cart-title">장바구니</span>
         </div>
 
-        <a href="../payment/payment.html" class="cart-right">
-            <strong>0원</strong>
+        <a class="cart-right is-disabled" id="cart-link" aria-disabled="true">
+            <strong id="cart-amount">0원</strong>
             <iconify-icon icon="mdi:chevron-right"></iconify-icon>
         </a>
     </div>
+    <p class="cart-status" id="cart-status" role="status" aria-live="polite" tabindex="-1">장바구니가 비어 있습니다. 상품을 선택해 주세요.</p>
 </div>
 
         </main>

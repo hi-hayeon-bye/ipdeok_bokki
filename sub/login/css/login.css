@@ -1,0 +1,73 @@
+/* 입덕볶이 로그인 페이지 - 모바일 최대 폭 500px */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #552B25; }
+a { text-decoration: none; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.container { width: 100%; max-width: 500px; margin: 0 auto; }
+
+/* Header: 다른 입덕볶이 페이지와 동일 규격 */
+.header { width: 100%; height: 60px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; background: #fff; }
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo img { display: block; width: auto; max-height: 40px; }
+.logo-text { font-size: 20px; font-weight: 500; color: #552B25; white-space: nowrap; }
+.menu-icon { font-size: 24px; color: #000; }
+.menu-trigger { display: flex; align-items: center; justify-content: center; cursor: pointer; }
+
+/* CSS 슬라이드 메뉴 */
+.menu-toggle { position: absolute; opacity: 0; pointer-events: none; }
+.menu-overlay { position: fixed; top: 0; left: max(0px, calc((100vw - 500px) / 2)); width: min(100vw, 500px); height: 100vh; background: rgba(0,0,0,.4); opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; z-index: 100; }
+.side-menu { position: fixed; top: 0; right: max(0px, calc((100vw - 500px) / 2)); width: min(66.6667vw, 333.333px); height: 100vh; background: #FFF4DF; transform: translateX(100%); visibility: hidden; transition: transform .3s ease, visibility .3s ease; z-index: 101; }
+.side-menu-header { height: 60px; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #E8C9B6; }
+.side-menu-header h2 { font-size: 20px; font-weight: 700; color: #E83D35; }
+.menu-close { display: flex; align-items: center; justify-content: center; font-size: 24px; color: #552B25; cursor: pointer; }
+.side-menu-list { display: flex; flex-direction: column; padding: 20px; }
+.side-menu-list a { display: block; padding: 15px 0; font-size: 16px; font-weight: 500; color: #552B25; border-bottom: 1px solid #E8C9B6; }
+.menu-toggle:checked ~ .menu-overlay { opacity: 1; visibility: visible; }
+.menu-toggle:checked ~ .side-menu { transform: translateX(0); visibility: visible; }
+
+/* 로그인 배너 */
+.hero { width: 100%; background: #a71911; }
+.hero img { display: block; width: 100%; height: auto; }
+.login-section { padding: 24px 34px 40px; }
+.login-section h1 { color: #552B25; font-size: 29px; font-weight: 800; text-align: center; letter-spacing: -1px; }
+.login-intro { margin: 12px 0 24px; text-align: center; font-size: 14px; line-height: 1.7; color: #65524c; }
+.community-login-notice { margin: -8px 0 20px; padding: 12px 14px; border: 1px solid #F2C2B9; border-radius: 11px; background: #FFF4DF; color: #B01D17; font-size: 13px; font-weight: 700; line-height: 1.6; text-align: center; }
+.community-login-notice[hidden] { display: none; }
+.login-form { display: flex; flex-direction: column; gap: 11px; }
+.input-wrap { display: flex; align-items: center; width: 100%; min-height: 48px; padding: 0 12px; border: 1px solid #D8CECA; border-radius: 11px; gap: 9px; background: #fff; }
+.input-wrap:focus-within { border-color: #E83D35; outline: 2px solid rgba(232,61,53,.12); }
+.input-wrap > iconify-icon { flex: none; font-size: 22px; color: #65524c; }
+.input-wrap input { flex: 1; min-width: 0; width: 100%; border: 0; outline: none; background: transparent; font-size: 13px; color: #552B25; }
+.input-wrap input::placeholder { color: #968b88; }
+.password-toggle { display: grid; place-items: center; flex: none; border: 0; background: transparent; color: #65524c; padding: 3px; }
+.password-toggle iconify-icon { font-size: 22px; }
+.form-options { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 3px 0 6px; }
+.remember-label { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; white-space: nowrap; }
+.remember-label input { width: 16px; height: 16px; accent-color: #E83D35; }
+.find-links { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+.find-links button { border: 0; background: transparent; color: #552B25; font-size: 11px; }
+.find-links > span { font-size: 11px; color: #b6a5a0; }
+.login-button { min-height: 50px; border: 0; border-radius: 11px; background: #C8211B; color: #fff; font-size: 18px; font-weight: 700; }
+.login-button:hover { background: #B01D17; }
+.form-message { color: #B01D17; font-size: 12px; line-height: 1.5; text-align: center; }
+.form-message:empty { display: none; }
+.separator { display: flex; align-items: center; gap: 18px; margin: 20px 0 17px; font-size: 13px; color: #746460; }
+.separator:before, .separator:after { content: ''; height: 1px; flex: 1; background: #ded2cc; }
+.social-buttons { display: flex; flex-direction: column; gap: 9px; }
+.social-button { min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 12px; border: 1px solid #D8CECA; background: #fff; border-radius: 24px; color: #332622; font-size: 14px; font-weight: 700; }
+.social-button:hover { background: #FFF9F5; }
+.social-logo { width: 25px; height: 25px; display: grid; place-items: center; flex: none; font-weight: 800; font-size: 20px; }
+.social-logo.kakao { color: #2E211C; background: #FEE500; border-radius: 50%; font-size: 16px; }
+.social-logo.naver { color: #03C75A; font-size: 24px; }
+.social-logo.google { font-family: Arial,sans-serif; font-size: 23px; font-weight: 700; color: #4285F4; }
+.join-guide { display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 26px; font-size: 13px; }
+.join-guide button { display: inline-flex; align-items: center; gap: 2px; color: #C8211B; font-size: 14px; font-weight: 700; text-decoration: underline; border: none; background: none; white-space: nowrap; }
+.join-guide iconify-icon { font-size: 20px; }
+
+@media(max-width: 360px) {
+  .login-section { padding: 22px 19px 32px; }
+  .form-options { flex-wrap: wrap; }
+  .find-links { margin-left: auto; }
+  .join-guide { gap: 6px; font-size: 12px; }
+}

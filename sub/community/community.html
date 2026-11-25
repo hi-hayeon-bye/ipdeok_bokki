@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>커뮤니티 | 입덕볶이</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/community.css">
+  <link rel="stylesheet" href="../../css/side-menu.css">
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- CSS 기반 슬라이드 메뉴 -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-overlay" aria-label="메뉴 닫기"></label>
+    <aside class="side-menu" aria-label="전체 메뉴">
+      <div class="side-menu-header"><a href="../../index.html" class="side-menu-brand" aria-label="입덕볶이 홈"><img src="../../img/Logo.png" alt=""><span>입덕볶이</span></a><label for="menu-toggle" class="menu-close" aria-label="메뉴 닫기"><iconify-icon icon="mdi:close"></iconify-icon></label></div>
+      <div class="side-menu-login">
+        <strong>입덕볶이에 오신 걸 환영해요!</strong>
+        <p>로그인하고 입덕볶이를 더 즐겨보세요.</p>
+        <a href="../login/login.html" class="side-menu-login-button">로그인하기</a>
+      </div>
+      <nav class="side-menu-list">
+        <a href="../../index.html"><iconify-icon icon="mdi:home-outline"></iconify-icon><span>홈</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+        <a href="../lists/lists.html"><iconify-icon icon="mdi:silverware-fork-knife"></iconify-icon><span>메뉴 주문</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+        <a href="../../index.html#event"><iconify-icon icon="mdi:gift-outline"></iconify-icon><span>이벤트</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+        <a href="community.html" aria-current="page"><iconify-icon icon="mdi:chat-outline"></iconify-icon><span>커뮤니티</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+        <a href="../about/about.html"><iconify-icon icon="mdi:information-outline"></iconify-icon><span>브랜드 소개</span><iconify-icon icon="mdi:chevron-right"></iconify-icon></a>
+      </nav>
+    </aside>
+
+    <header class="header">
+      <a href="../../index.html" class="logo"><img src="../../img/Logo.png" alt="입덕볶이 로고"><span class="logo-text">입덕볶이</span></a>
+      <label for="menu-toggle" class="menu-trigger" aria-label="메뉴 열기"><iconify-icon icon="mdi:menu" class="menu-icon"></iconify-icon></label>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="입덕볶이 커뮤니티 소개">
+        <img src="img/banner.png" alt="입덕볶이 커뮤니티! 입덕볶이와 함께 이야기하고 꿀팁을 나눠요!" />
+      </section>
+
+      <section class="community-content" aria-label="게시글 목록">
+        <!-- 탭 / 검색 / 정렬은 프로토타입의 화면 요소입니다. -->
+        <div class="category-list" role="group" aria-label="게시글 카테고리">
+          <button class="category active" type="button" data-category="all" aria-pressed="true">전체</button>
+          <button class="category" type="button" data-category="review" aria-pressed="false">🌶️ 메뉴 후기</button>
+          <button class="category" type="button" data-category="tip" aria-pressed="false">💡 꿀팁/레시피</button>
+          <button class="category" type="button" data-category="event" aria-pressed="false">📣 이벤트</button>
+          <button class="category" type="button" data-category="chat" aria-pressed="false">💬 자유톡</button>
+        </div>
+
+        <div class="tools-row">
+          <label class="search-box" for="post-search"><iconify-icon icon="mdi:magnify" aria-hidden="true"></iconify-icon><input id="post-search" type="search" placeholder="게시글을 검색해보세요." aria-label="게시글 검색"></label>
+          <label class="sort-box" for="post-sort"><span class="sr-only">정렬 기준</span><select id="post-sort"><option value="newest">최신순</option><option value="likes">인기순</option></select><iconify-icon icon="mdi:chevron-down" aria-hidden="true"></iconify-icon></label>
+        </div>
+
+        <div class="post-list" id="post-list">
+          <article class="post-card" data-category="review" data-order="3" data-likes="36">
+            <img class="post-thumb" src="img/review_cheese.png" alt="치즈가 듬뿍 늘어나는 떡볶이">
+            <div class="post-body">
+              <span class="post-tag">🌶️ 메뉴 후기</span>
+              <h2>치즈 추가는 무조건이네요...! 🧀</h2>
+              <p class="post-preview">오리지널에 치즈 추가했는데 진짜 완벽해요. 소스도 매콤달콤하고 치즈랑 너무 잘 어울려요!</p>
+              <div class="post-footer"><span class="post-author">떡볶이사랑 · 2시간 전</span><span class="post-stats"><span><iconify-icon icon="mdi:heart-outline"></iconify-icon>36</span><span><iconify-icon icon="mdi:comment-outline"></iconify-icon>8</span></span></div>
+            </div>
+          </article>
+          <article class="post-card" data-category="tip" data-order="2" data-likes="52">
+            <img class="post-thumb" src="img/review_recipe.png" alt="매콤한 떡볶이 한 그릇">
+            <div class="post-body">
+              <span class="post-tag">💡 꿀팁/레시피</span>
+              <h2>집에서도 입덕볶이 맛 내는 꿀팁 공유! 🔥</h2>
+              <p class="post-preview">집에 있는 재료로 입덕볶이 스타일 소스 만드는 법이에요! 진짜 비슷해서 놀랐어요 ㅎㅎ</p>
+              <div class="post-footer"><span class="post-author">요리하는하연 · 5시간 전</span><span class="post-stats"><span><iconify-icon icon="mdi:heart-outline"></iconify-icon>52</span><span><iconify-icon icon="mdi:comment-outline"></iconify-icon>14</span></span></div>
+            </div>
+          </article>
+          <article class="post-card" data-category="event" data-order="1" data-likes="89">
+            <img class="post-thumb" src="img/event_post.png" alt="이벤트 선물 상자 이미지">
+            <div class="post-body">
+              <span class="post-tag">📣 이벤트</span>
+              <h2>이번 주 신메뉴 이벤트 소식! 🎁</h2>
+              <p class="post-preview">이번 주부터 신메뉴 출시 기념 이벤트가 진행돼요! 쿠폰도 받을 수 있으니 놓치지 마세요!</p>
+              <div class="post-footer"><span class="post-author">입덕볶이_공지 · 1일 전</span><span class="post-stats"><span><iconify-icon icon="mdi:heart-outline"></iconify-icon>89</span><span><iconify-icon icon="mdi:comment-outline"></iconify-icon>6</span></span></div>
+            </div>
+          </article>
+        </div>
+        <p class="empty-message" id="empty-message" hidden>검색 결과가 없어요. 다른 키워드를 입력해보세요.</p>
+      </section>
+    </main>
+
+    <button class="write-button" type="button" id="write-button" aria-label="글쓰기"><iconify-icon icon="mdi:pencil-outline"></iconify-icon></button>
+  </div>
+
+  <dialog class="login-dialog" id="login-dialog" aria-labelledby="login-dialog-title" aria-describedby="login-dialog-description">
+    <div class="login-dialog-content">
+      <div class="login-dialog-icon" aria-hidden="true"><iconify-icon icon="mdi:account-lock-outline"></iconify-icon></div>
+      <h2 id="login-dialog-title">글을 작성하려면 로그인이 필요해요.</h2>
+      <p id="login-dialog-description">로그인 후 입덕볶이 커뮤니티에 참여해 보세요.</p>
+      <div class="login-dialog-actions">
+        <a href="../login/login.html?from=community" class="login-dialog-link" id="community-login-link">로그인하러 가기</a>
+        <button type="button" class="login-dialog-cancel" id="login-dialog-cancel">취소</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // 프로토타입: 현재 화면에 있는 샘플 게시글을 필터링/정렬합니다.
+    const tabs = document.querySelectorAll('.category');
+    const search = document.querySelector('#post-search');
+    const sort = document.querySelector('#post-sort');
+    const list = document.querySelector('#post-list');
+    const empty = document.querySelector('#empty-message');
+    const posts = [...list.querySelectorAll('.post-card')];
+    let currentCategory = 'all';
+    function updatePosts() {
+      const query = search.value.trim().toLocaleLowerCase('ko-KR');
+      const filtered = posts.filter(post => {
+        const matchesCategory = currentCategory === 'all' || post.dataset.category === currentCategory;
+        const matchesText = post.textContent.toLocaleLowerCase('ko-KR').includes(query);
+        const show = matchesCategory && matchesText;
+        post.hidden = !show;
+        return show;
+      });
+      filtered.sort((a,b) => sort.value === 'likes' ? Number(b.dataset.likes)-Number(a.dataset.likes) : Number(b.dataset.order)-Number(a.dataset.order));
+      filtered.forEach(post => list.appendChild(post));
+      empty.hidden = filtered.length > 0;
+    }
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      currentCategory = tab.dataset.category;
+      tabs.forEach(item => { item.classList.toggle('active', item === tab); item.setAttribute('aria-pressed', String(item === tab)); });
+      updatePosts();
+    }));
+    search.addEventListener('input', updatePosts);
+    sort.addEventListener('change', updatePosts);
+
+    // 프로토타입: 글쓰기 전 로그인 안내만 제공하며 실제 게시글 작성은 연결하지 않습니다.
+    const writeButton = document.querySelector('#write-button');
+    const loginDialog = document.querySelector('#login-dialog');
+    const communityLoginLink = document.querySelector('#community-login-link');
+    const dialogCancel = document.querySelector('#login-dialog-cancel');
+    writeButton.addEventListener('click', () => {
+      loginDialog.showModal();
+      communityLoginLink.focus();
+    });
+    function closeLoginDialog(reason) {
+      loginDialog.close(reason);
+      writeButton.focus();
+    }
+    dialogCancel.addEventListener('click', () => closeLoginDialog('cancel'));
+    document.addEventListener('click', (event) => {
+      if (!loginDialog.open) return;
+      const bounds = loginDialog.querySelector('.login-dialog-content').getBoundingClientRect();
+      const outside = event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+      if (outside) closeLoginDialog('backdrop');
+    }, true);
+    loginDialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      if (event.shiftKey && document.activeElement === communityLoginLink) {
+        event.preventDefault();
+        dialogCancel.focus();
+      } else if (!event.shiftKey && document.activeElement === dialogCancel) {
+        event.preventDefault();
+        communityLoginLink.focus();
+      }
+    });
+    loginDialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeLoginDialog('escape');
+    });
+  </script>
+</body>
+</html>
